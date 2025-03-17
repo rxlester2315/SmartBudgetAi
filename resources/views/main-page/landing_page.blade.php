@@ -6,8 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Landing Page</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
         @vite(['resources/js/app.js'])
+
     </head>
 
     <body>
@@ -18,7 +24,7 @@
 
             <nav class="flex flex-col md:flex-row justify-between items-center py-4 text-white px-4">
 
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 w">
                     <img src="images/logos.png" class="w-20 h-20 object-cover" alt="Logo">
                 </div>
 
@@ -82,7 +88,7 @@
 
 
 
-        <div class="flex justify-center items-center flex-col px-4 lg:px-20 py-20">
+        <div class="flex justify-center text-center items-center flex-col px-4 lg:px-20 py-20">
 
             <h1 class="text-5xl font-bold text-center mb-2 font-sans">AI-Powered Budgeting</h1>
             <h2 class="text-5xl font-medium text-gray-400 mb-2 font-sans">Handling Money Made Smart & Easy</h2>
@@ -96,7 +102,7 @@
         </div>
 
 
-        <div class="flex flex-row justify-center items-center flex-wrap">
+        <div class="flex flex-row justify-center items-center flex-wrap mb-[200px]">
 
 
             <div class="border-2 border-gray-200 p-4 m-4 rounded-lg w-60 h-96 bg-black text-white">
@@ -140,6 +146,250 @@
 
 
         </div>
+
+
+
+
+
+        <div class="flex  justify-center text-center items-center flex-col mb-[50px]">
+            <h1 class="text-5xl font-bold justify-center mb-[30px] ">Explore <span class="text-yellow-500">Smart
+                    Budget</span> That Can Help You</h1>
+
+            <p class="text-lg justify-center text-gray-700 mb-[5px] ">Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Itaque laboriosam deleniti perspiciatis
+                <br class="mb-5px"> ipsa tempore molestias magnam doloremque voluptate a alias. Ratione qui enim illo
+                voluptas.
+            </p>
+        </div>
+
+
+        <div class="flex flex-col md:flex-row justify-center items-center mb-[200px]">
+            <div class="border border-gray-200 rounded-lg p-4 m-5 w-[350px]">
+
+                <i class="fa-brands fa-usps border border-gray-500 rounded-2xl py-2 px-3 bg-yellow-500 text-white"></i>
+                <h4 class="font-medium">User Experience </h4>
+                <p class="w-[300px] h-[60px] text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Quibusdam, totam?
+                </p>
+
+            </div>
+
+            <div class="border border-gray-200 rounded-lg p-4 m-5 w-[350px]">
+
+                <i class="fa-brands fa-usps border border-gray-500 rounded-2xl py-2 px-3 bg-yellow-500 text-white"></i>
+                <h4 class="font-medium">User Experience </h4>
+                <p class="w-[300px] h-[60px] text-gray-400">Lorem ipsum dolor, sit ameh consectetur adipisicing elit.
+                    Quibusdam, totam?
+                </p>
+
+            </div>
+
+
+            <div class="border border-gray-200 rounded-lg p-4 m-5 w-[350px]">
+
+                <i class="fa-brands fa-usps border border-gray-500 rounded-2xl py-2 px-3 bg-yellow-500 text-white"></i>
+                <h4 class="font-medium">User Experience </h4>
+                <p class="w-[300px] h-[60px] text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Quibusdam, totam?
+                </p>
+
+            </div>
+
+
+            <div class="border border-gray-200 rounded-lg p-4 m-5 w-[350px]">
+
+                <i class="fa-brands fa-usps border border-gray-500 rounded-2xl py-2 px-3 bg-yellow-500 text-white"></i>
+                <h4 class="font-medium">User Experience </h4>
+                <p class="w-[300px] h-[60px] text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Quibusdam, totam?
+                </p>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="flex flex-col md:flex-row justify-evenly items-center  bg-gradient-to-r from-[#0B1220] via-[#1f2833] to-[#4e5d6b] min-h-[700px]
+">
+
+
+            <div>
+
+                <p
+                    class="text-white border border-gray-800 bg-gray-600 px-10  rounded-2xl w-[100px] h-[20px] flex items-center justify-center text-xs text-center m-5">
+                    TESTIMONIALS</p>
+
+                <h1 class="font-bold text-5xl text-white mb-8">Our Customers <br>say about us</h1>
+                <p class="text-gray-400 mb-6 text-md">Lorem ipsum dolor brsit amet consectetur <br>adipisicing elit.
+                    Vel, totam blanditiis.
+                    <br>Iste hic molestias facere veniam aliquam <br>reprehenderit perferendis? Aperiam?
+                </p>
+
+                <p
+                    class="border border-gray-800 bg-yellow-500 text-white rounded-md w-[110px] h-[40px] text-center flex items-center justify-center text-sm mb-5">
+                    Get Started</p>
+
+            </div>
+
+
+            <div class="flex justify-center items-center flex-col ">
+
+                <div
+                    class="flex justify-center items-center text-center flex-col bg-gray-700 border border-gray-500 rounded-lg w-[350px] h-[240px] text-white mb-10">
+
+                    <p class="mb-[50px] text-gray-300 ">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquid, sapiente?" <br> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+                        sapiente?"</p>
+
+
+                    <div class="flex justify-evenly items-center   ">
+                        <div class="flex flex-col justify-between items-center px-10">
+                            <img src="images/2.jpg" class="w-[40px] h-[40px] object-cover rounded-2xl" alt="">
+
+                            <h2 class="text-md text-bold">Eren Yaegar</h2>
+                            <span class="text-xs">Ceo of Rumbling Corp</span>
+                        </div>
+
+                        <div class="flex flex-row items-center text-center px-10">
+                            <i class="fa-solid fa-medal  text-yellow-500"></i>
+                            <p class="m-3 text-extrabold text-lg">5.0</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    class="flex justify-center items-center text-center flex-col bg-gray-700 border border-gray-500 rounded-lg w-[350px] h-[240px] text-white">
+
+                    <p class="mb-[50px] text-gray-300">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquid, sapiente?" <br> "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+                        sapiente?"</p>
+
+
+                    <div class="flex justify-evenly items-center   ">
+                        <div class="flex flex-col justify-between items-center px-10">
+                            <img src="images/2.jpg" class="w-[40px] h-[40px] object-cover rounded-2xl" alt="">
+                            <h2 class="text-md text-bold">Eren Yaegar</h2>
+                            <span class="text-xs">Ceo of Rumbling Corp</span>
+                        </div>
+
+                        <div class="flex flex-row items-center text-center px-10">
+                            <i class="fa-solid fa-medal  text-yellow-500"></i>
+                            <p class="m-3 text-extrabold text-lg">5.0</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+        <footer class="bg-gradient-to-t from-[#363636] via-[#2c2c2c] to-[#1a1a1a] min-h-[300px]
+">
+
+
+            <div class="flex justify-evenly items-center py-8">
+                <div class="text-white">
+                    <img src="images/logos.png" alt="" class="w-[70px] h-[50px] object-cover">
+                    <h1 class="text-3xl text-white font-extrabold mt-4">FinAI</h1>
+                    <h2 class="text-sm font-medium">Smart Budget Ai Generated</h2>
+                    <p class="text-xs">Lorem ipsum dolor sit amet consectetur <br>adipisicing elit. Qui, saepe?</p>
+                </div>
+
+
+                <div class="text-white">
+                    <h1 class="font-bold text-md">Office</h1>
+                    <p class="text-xs text-md">Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet. <br>Lorem,
+                        ipsum dolor.</p>
+                </div>
+
+
+                <div class="text-white">
+                    <h1 class="font-bold text-md">Links</h1>
+
+                    <p>Solutions</p>
+                    <p>Company</p>
+                    <p>Resources</p>
+                    <p>About us</p>
+
+
+                </div>
+
+                <div class="text-white  mb-10 ">
+                    <h1 class="font-bold text-md mb-4 text-center">Social Medias</h1>
+
+                    <i
+                        class="fa-brands fa-facebook px-4 py-2 text-1xl border border-gray-600 bg-blue-500 rounded-2xl"></i>
+                    <i
+                        class="fa-brands fa-youtube px-4 py-2 text-1xl border border-gray-600 bg-red-600 rounded-2xl "></i>
+                    <i
+                        class="fa-solid fa-envelope-circle-check px-4  py-2 text-1xl border border-gray-600 bg-yellow-500 rounded-2xl "></i>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="border-t border-gray-300 my-2 ">
+
+
+                <div class="flex justify-between items-center mt-3 text-white">
+                    <p class="text-xs m-2">Smart AI Budget Generated © 2025 - All Rights Reserved</p>
+
+                    <div class="flex justify-center">
+                        <p class="px-8 text-xs m-2  ">Privacy Policy</p>
+                        <p class="text-xs m-2">Contact Us</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
