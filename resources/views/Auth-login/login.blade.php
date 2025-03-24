@@ -27,6 +27,24 @@
 
                 <div class="text-white">
 
+                    @if (session('login_success'))
+                    <div class="bg-green-500 text-white text-center py-3 px-6 rounded-lg mb-4 w-[466px]">
+                        {{ session('login_success') }}
+                    </div>
+                    @endif
+
+
+
+                    @if ($errors->any())
+                    <div class="bg-red-500 text-white text-center py-3 px-6 rounded-lg mb-4 w-[466px]">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <h1 class="text-5xl font-medium py-12">Login</h1>
                     <a href="{{url('register')}}">
                         <h4 class="text-lg  font-sans">Dont have account? <span class="underline">Create
@@ -36,16 +54,19 @@
 
 
 
-                    <form action="">
+                    <form action="{{route('login-backend')}}" method="POST">
+                        @csrf
 
                         <div class="flex  mt-12">
                             <input type="text" placeholder="Email"
-                                class=" text-black py-4 w-[466px] px-4 rounded-lg   bg-[#2C2638] " required>
+                                class=" text-white py-4 w-[466px] px-4 rounded-lg   bg-[#2C2638] " name="email"
+                                required>
                         </div>
 
                         <div class="flex mb-4 mt-6">
                             <input type="password" placeholder="Password"
-                                class=" text-black py-4 w-[466px] px-4 rounded-lg   bg-[#2C2638] " required>
+                                class=" text-white py-4 w-[466px] px-4 rounded-lg   bg-[#2C2638] " name="password"
+                                required>
                         </div>
 
 

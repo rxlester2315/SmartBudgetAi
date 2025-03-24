@@ -9,12 +9,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/mainpage', [HomeController::class, 'landingpage']);
+Route::get('/mainpage', [HomeController::class, 'landingpage'])->name('mainpages');
 
 
 Route::get('/login', [AuthController::class, 'ShowloginFrm']);
 Route::get('/register', [AuthController::class, 'ShowRegisterFrm']);
 
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login-backend');
 Route::post('/register', [AuthController::class, 'registerBackend'])->name('register');
+
+
+Route::get('/NormalUser', [AuthController::class, 'normalUserDashboard'])->name('user.dashboard');
