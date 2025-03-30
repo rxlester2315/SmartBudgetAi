@@ -14,6 +14,15 @@ class HomeController extends Controller
         return view('main-page.landing_page');
     }
 
+
+    public function setgoals(){
+        return view('dashboard-pages-user.set-goals');
+    }
+
+    public function setexpenses(){
+        return view('dashboard-pages-user.expenses');
+    }
+
     
 
 

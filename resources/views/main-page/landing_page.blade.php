@@ -21,7 +21,7 @@
             <nav class="flex flex-col md:flex-row justify-between items-center py-4  px-4">
 
                 <div class="flex-shrink-0 w">
-                    <img src="imagesf/logos.png" class="w-20 h-20 object-cover" alt="Logo">
+                    <img src="images/logos.png" class="w-20 h-20 object-cover" alt="Logo">
                 </div>
 
 
@@ -317,7 +317,7 @@
 
 
                 <div class="text-white">
-                    <img src="imagesf/logos.png" alt="" class="w-[70px] h-[50px] object-cover mx-auto md:mx-0">
+                    <img src="images/logos.png" alt="" class="w-[70px] h-[50px] object-cover mx-auto md:mx-0">
                     <h1 class="text-3xl text-white font-extrabold mt-4">FinAI</h1>
                     <h2 class="text-sm font-medium">Smart Budget Ai Generated</h2>
                     <p class="text-xs">Lorem ipsum dolor sit amet consectetur <br>adipisicing elit. Qui, saepe?</p>

@@ -49,7 +49,7 @@ public function login(Request $request)
         $user = Auth::user(); // Get authenticated user
 
         $redirectRoute = [
-            'Admin' => 'admin.dashboard',
+            'Admin' => 'admin',
             'Normal User' => 'NormalUser',
         ];
 
@@ -98,9 +98,19 @@ public function login(Request $request)
 
     }    
 
+    public function logout(){
+        Auth::logout();
+        return redirect('/login');
+    }
+
 
     public function normalUserDashboard(){
-        return view('dashboard-pages.dashboard');
+        return view('dashboard-pages-user.dashboard');
+    }
+
+
+    public function adminDashboard(){
+        return view('admin.admin-dashboard');
     }
 
 
