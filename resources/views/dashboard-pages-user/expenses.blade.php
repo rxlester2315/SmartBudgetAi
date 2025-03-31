@@ -7,6 +7,8 @@
         <title>Financial Dashboard</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
         <script>
         tailwind.config = {
             darkMode: 'class',
@@ -140,87 +142,96 @@
                     </div>
 
 
-                    <form action="">
+                    <form action="{{route('storexpen.store')}}" method="POST">
+                        @csrf
+                        <div class="flex flex-col text-white">
 
-                        <div class="flex flex-col">
 
-
-                            <div class=" mt-16">
+                            <div class=" mt-16" x-data="{ foodAmounts: ['', '', ''] }">
                                 <h4 class="text-white text-2xl  font-medium"><i
                                         class="ri-restaurant-line text-white text-3xl px-4"></i> Daily Food Expenses
                                 </h4>
                                 <div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-10 ">
 
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Meal 1">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Meal 2">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Meal 3">
-                                    <button
+                                    <template x-for="(amount,index) in foodAmounts" :key="index">
+                                        <input type="number" step="0.01" x-model="foodAmounts[index]"
+                                            :name="`food[${index}]`"
+                                            class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md mr-3"
+                                            :placeholder="'Meal ' + (index + 1)">
+
+                                    </template>
+
+                                    <button type="button" @click="foodAmounts.push('')"
                                         class="border border-gray-600 rounded-md bg-[#4F46E5] text-white ml-3 p-2">Add
                                         More</button>
+
+
                                 </div>
                             </div>
 
-                            <div class=" mt-16">
+                            <div class=" mt-16" x-data="{TransportAmount: ['','','']}">
                                 <h4 class="text-white text-2xl  font-medium"><i
                                         class="ri-car-fill text-white text-3xl px-4"></i> Daily Transportation Expenses
                                 </h4>
                                 <div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-10 ">
 
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Transportation 1">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Transportation 2">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Transportation 3">
-                                    <button
+                                    <template x-for="(transport ,index) in TransportAmount" :key="index">
+                                        <input type="number" x-model="TransportAmount[index]"
+                                            class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md mr-3"
+                                            :name="`transport[${index}]`"
+                                            :placeholder="'Transportation ' + (index + 1)">
+
+                                    </template>
+
+                                    <button type="button" @click="TransportAmount.push('')"
                                         class="border border-gray-600 rounded-md bg-[#4F46E5] text-white ml-3 p-2">Add
                                         More</button>
+
+
                                 </div>
                             </div>
 
 
-                            <div class=" mt-16">
+                            <div class=" mt-16" x-data="{ElectricityAmount: ['','']}">
                                 <h4 class="text-white text-2xl  font-medium"><i
                                         class="ri-water-flash-line text-white text-3xl px-4"></i> Electricity & Water
                                 </h4>
                                 <div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-10 ">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Electricity Bill">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Water Bill">
-                                    <button
+
+                                    <template x-for="(electricity , index) in ElectricityAmount" :key="index">
+                                        <input type="number" x-model="ElectricityAmount[index]"
+                                            class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md mr-3"
+                                            :name="`electricities[${index}]`"
+                                            :placeholder="'Electricity ' + (index + 1)">
+
+                                    </template>
+
+                                    <button type="button" @click="ElectricityAmount.push('')"
                                         class="border border-gray-600 rounded-md bg-[#4F46E5] text-white ml-3 p-2">Add
                                         More</button>
+
                                 </div>
                             </div>
 
-                            <div class=" mt-16">
+                            <div class=" mt-16" x-data="{subscriptionsAmount: ['','','']}">
+
                                 <h4 class="text-white text-2xl  font-medium"><i
                                         class="ri-router-line text-white text-3xl px-4"></i>Subscriptions & Wifi</h4>
                                 <div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-10 ">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Subscription 1">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Subscription 2">
-                                    <input type="text"
-                                        class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md  mr-3"
-                                        placeholder="Wifi ">
-                                    <button
+
+                                    <template x-for="(subscription , index) in subscriptionsAmount" :key="index">
+
+                                        <input type="number" x-model="subscriptionsAmount[index]"
+                                            class="w-[300px] h-[50px] border border-gray-200 bg-[#111827] px-3 rounded-md mr-3"
+                                            :name="`subscriptions[${index}]`"
+                                            :placeholder="'Subscription ' + (index + 1)">
+
+                                    </template>
+
+                                    <button type="button" @click="subscriptionsAmount.push('')"
                                         class="border border-gray-600 rounded-md bg-[#4F46E5] text-white ml-3 p-2">Add
                                         More</button>
+
                                 </div>
                             </div>
                         </div>

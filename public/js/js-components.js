@@ -34,4 +34,24 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("color-theme", "light");
         }
     });
+
+    // Add event listener for file input to trigger image preview
+    const fileInput = document.getElementById("image-upload");
+    fileInput.addEventListener("change", previewImage); // Call previewImage on file change
 });
+
+// Function to preview image
+function previewImage(event) {
+    const preview = document.getElementById("image-preview");
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function () {
+            preview.src = reader.result; // Update the preview image with the selected file
+        };
+
+        reader.readAsDataURL(file); // Read the file as a data URL
+    }
+}

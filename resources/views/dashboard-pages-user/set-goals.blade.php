@@ -68,7 +68,7 @@
                                     <i class="ri-wallet-line mr-3 text-lg"></i>
                                     Accounts
                                 </a>
-                                <a href="{{url('setgoals')}}"
+                                <a href="{{url('setexpenses')}}"
                                     class="flex items-center px-4 py-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
                                     <i class="ri-exchange-dollar-line mr-3 text-lg"></i>
                                     Transactions
@@ -152,52 +152,59 @@
 
 
                 <div class="overflow-auto h-screen">
-                    <form action="">
+                    <form action="{{route('setgoalStore')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
-                        <div class="flex flex-col  md:flex-row   justify-evenly items-center  ">
-
-
-                            <div class="flex  flex-col gap-4 mt-10 text-white">
+                        <div class="flex flex-col md:flex-row justify-evenly items-center">
+                            <div class="flex flex-col gap-4 mt-10 text-white">
                                 <p class="font-medium">GOAL NAME</p>
-                                <input type="text"
+                                <input type="text" name="goal_name"
                                     class="w-[330px] h-[45px] border border-gray-600 rounded-md bg-[#111827] px-3"
                                     placeholder="Enter Goal Name">
+                                @error('goal_name') <span class="text-red-500">{{ $message }}</span> @enderror
 
-                                <p class="font-medium">Target Amount</p>
-                                <input type="text"
+                                <p class="font-medium">TARGET AMOUNT</p>
+                                <input type="text" name="target_amount"
                                     class="w-[330px] h-[45px] border border-gray-600 rounded-md bg-[#111827] px-3"
                                     placeholder="Target Amount">
+                                @error('target_amount') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="flex  flex-col gap-4 mt-10 mb-5 text-white">
-                                <p class="font-medium">Target Date</p>
-                                <input type="date"
+                            <div class="flex flex-col gap-4 mt-10 mb-5 text-white">
+                                <p class="font-medium">TARGET DATE</p>
+                                <input type="date" name="target_date"
                                     class="w-[330px] h-[45px] border border-gray-600 rounded-md bg-[#111827] px-3">
+                                @error('target_date') <span class="text-red-500">{{ $message }}</span> @enderror
 
-                                <p class="font-medium">Current Amount</p>
-                                <input type="text"
-                                    class="w-[330px] h-[45px] border border-gray-600 rounded-md bg-[#111827] px-3 "
-                                    placeholder="Current Amount">
+                                <p class="font-medium">TYPE OF GOAL</p>
+                                <select name="type_of_goal"
+                                    class="w-[330px] h-[45px] border border-gray-600 rounded-md bg-[#111827] px-3">
+                                    <option value="" disabled selected>--Select Financial Goals--</option>
+                                    <option value="Emergency Fund">Emergency Fund</option>
+                                    <option value="Vacation Fund">Vacation Fund</option>
+                                    <option value="Buying a New Car">Buying a New Car</option>
+                                    <option value="Retirement Savings">Retirement Savings</option>
+                                    <option value="Starting a Business">Starting a Business</option>
+                                </select>
+                                @error('type_of_goal') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
 
-
-                            <div class="flex  items-center flex-col border border-gray-600 rounded-md p-10 ">
+                            <div class="flex items-center flex-col border border-gray-600 rounded-md p-10">
                                 <p class="font-medium text-white">Upload Image</p>
                                 <p class="text-gray-500">Upload an image to represent your goal</p>
-                                <img src="images/icon-image.png" class="w-[200px] h-[200px] object-cover" alt="">
-                                <input type="file"
-                                    class="mt-4 text-white text-center bg-[#111827] border border-gray-600 rounded-md px-3 py-2">
+                                <img id="image-preview" src="images/icon-image.png"
+                                    class="w-[200px] h-[200px] object-cover" alt="">
+                                <input type="file" id="image-upload" name="image"
+                                    class="mt-4 text-white text-center bg-[#111827] border border-gray-600 rounded-md px-3 py-2"
+                                    onchange="previewImage(event)">
+                                @error('image') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
-
-
                         </div>
 
                         <div class="flex justify-center items-center mt-10 mb-10">
                             <button type="submit"
                                 class="border border-gray-600 rounded-md bg-[#4F46E5] text-white px-5 py-2">Create</button>
                         </div>
-
-
                     </form>
 
                 </div>

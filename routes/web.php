@@ -26,3 +26,7 @@ Route::get('/admin' , [AuthController::class, 'adminDashboard'])->name('admin.da
 Route::get('/setgoals', [HomeController::class, 'setgoals'])->name('setgoals');
 
 Route::get('/setexpenses', [HomeController::class, 'setexpenses'])->name('setexpenses');
+
+Route::post('/setgoalStore', [HomeController::class, 'setgoalStore'])->name('setgoalStore');
+
+Route::post('/storexpen', [HomeController::class, 'storexpen'])->name('storexpen.store');
