@@ -84,6 +84,12 @@ public function storexpen(Request $request)
     return redirect()->back()->with('success', 'Expenses saved!');
 }
 
+
+
+
+
+
+
     
 
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Expenses;
 
 
 
@@ -105,7 +106,43 @@ public function login(Request $request)
 
 
     public function normalUserDashboard(){
-        return view('dashboard-pages-user.dashboard');
+
+
+        // Get expenses with their items for the current user
+    $expenses = Expenses::with('items')
+        ->where('user_id', auth()->id())
+        ->orderBy('expense_date', 'desc')
+        ->get();
+
+    // Initialize categories
+    $categories = [
+        'food' => ['name' => 'Food & Dining', 'total' => 0, 'color' => 'bg-secondary'],
+        'transportation' => ['name' => 'Transportation', 'total' => 0, 'color' => 'bg-purple-500'],
+        'utilities' => ['name' => 'Utilities', 'total' => 0, 'color' => 'bg-blue-500'],
+        'subscriptions' => ['name' => 'Subscriptions', 'total' => 0, 'color' => 'bg-yellow-500'],
+        'other' => ['name' => 'Others', 'total' => 0, 'color' => 'bg-gray-500']
+    ];
+
+    // Calculate totals
+    foreach ($expenses as $expense) {
+        foreach ($expense->items as $item) {
+            if (isset($categories[$item->category])) {
+                $categories[$item->category]['total'] += $item->amount;
+            } else {
+                $categories['other']['total'] += $item->amount;
+            }
+        }
+    }
+
+    // Calculate percentages
+    $grandTotal = array_sum(array_column($categories, 'total'));
+    
+    foreach ($categories as &$category) {
+        $category['percentage'] = $grandTotal > 0 
+            ? round(($category['total'] / $grandTotal) * 100, 1)
+            : 0;
+    }
+        return view('dashboard-pages-user.dashboard', compact('categories', 'grandTotal'));
     }
 
 

@@ -202,60 +202,34 @@
                                 </select>
                             </div>
                             <div class="space-y-4">
+                                @if($grandTotal > 0)
+                                @foreach($categories as $category)
+                                @if($category['total'] > 0)
                                 <div>
                                     <div class="flex items-center justify-between mb-1">
-                                        <span
-                                            class="text-sm font-medium text-gray-600 dark:text-gray-300">Housing</span>
-                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">$1,200
-                                            (30.8%)</span>
+                                        <span class="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                            {{ $category['name'] }}
+                                        </span>
+                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            ₱{{ number_format($category['total'], 2) }} ({{ $category['percentage'] }}%)
+                                        </span>
                                     </div>
                                     <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                                        <div class="h-2 rounded-full bg-primary" style="width: 30.8%"></div>
+                                        <div class="h-2 rounded-full {{ $category['color'] }}"
+                                            style="width: {{ $category['percentage'] }}%"></div>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span class="text-sm font-medium text-gray-600 dark:text-gray-300">Food &
-                                            Dining</span>
-                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">$850
-                                            (21.9%)</span>
-                                    </div>
-                                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                                        <div class="h-2 rounded-full bg-secondary" style="width: 21.9%"></div>
-                                    </div>
+                                @endif
+                                @endforeach
+                                @else
+                                <div class="text-center p-4">
+                                    <h3 class="text-gray-600 dark:text-gray-300 mb-4">No expenses recorded yet</h3>
+                                    <a href="{{ route('setexpenses') }}"
+                                        class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary/90">
+                                        Add Your First Expense
+                                    </a>
                                 </div>
-                                <div>
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span
-                                            class="text-sm font-medium text-gray-600 dark:text-gray-300">Transportation</span>
-                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">$620
-                                            (15.9%)</span>
-                                    </div>
-                                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                                        <div class="h-2 rounded-full bg-purple-500" style="width: 15.9%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span
-                                            class="text-sm font-medium text-gray-600 dark:text-gray-300">Entertainment</span>
-                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">$480
-                                            (12.3%)</span>
-                                    </div>
-                                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                                        <div class="h-2 rounded-full bg-yellow-500" style="width: 12.3%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span class="text-sm font-medium text-gray-600 dark:text-gray-300">Others</span>
-                                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">$740
-                                            (19.1%)</span>
-                                    </div>
-                                    <div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                                        <div class="h-2 rounded-full bg-gray-500" style="width: 19.1%"></div>
-                                    </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
 
